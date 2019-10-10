@@ -1,18 +1,15 @@
+attach(survey);
 #A
 getMans = which(survey$Sex == "Male");
 numberOfMans = length(getMans);
 #B
-numberOfSmoker = length(which(survey$Smoke != "Never"));
-avarageHeight = 0;
+numberOfSmoker = length(which(survey$Smoke[getMans] != "Never"));
 
 #C
-for(i in 1 : numberOfMans)
-{
-  if(sum[survey[getMans[i],"Height"]]!= NA)
-  {
-  avarageHeight = sum(survey[getMans[i],"Height"],avarageHeight);
-  
-  }
-}
-#avarageHeight = avarageHeight / numberOfMans;
+  avarageHeight = mean(survey$Height[getMans], na.rm = TRUE) ;
 
+#G
+ ind =  order(Age)[1:6]
+ height = survey$Height[ind]
+ age = survey$Age[ind]
+ 
